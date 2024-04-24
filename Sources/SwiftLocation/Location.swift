@@ -97,6 +97,24 @@ public final class Location {
     }
     #endif
     
+    #if !os(tvOS)
+    /// A Boolean value that indicates whether the location-manager object may pause location updates.
+    /// By defualt is `true`.
+    public var pausesLocationUpdatesAutomatically: Bool {
+        get { locationManager.pausesLocationUpdatesAutomatically }
+        set { locationManager.pausesLocationUpdatesAutomatically = newValue }
+    }
+    #endif
+    
+    #if !os(tvOS)
+    /// A Boolean value that indicates whether the status bar changes its appearance when an app uses location services in the background.
+    /// By defualt is `false`.
+    public var showsBackgroundLocationIndicator: Bool {
+        get { locationManager.showsBackgroundLocationIndicator }
+        set { locationManager.showsBackgroundLocationIndicator = newValue }
+    }
+    #endif
+    
     /// The minimum distance in meters the device must move horizontally before an update event is generated.
     /// By defualt is set to `kCLDistanceFilterNone`.
     ///
@@ -106,6 +124,24 @@ public final class Location {
         get { locationManager.distanceFilter }
         set { locationManager.distanceFilter = newValue }
     }
+    
+    #if !os(tvOS)
+    /// The minimum angular change in degrees required to generate new heading events.
+    /// By defualt is `1` degree.
+    public var headingFilter: CLLocationDegrees {
+        get { locationManager.headingFilter }
+        set { locationManager.headingFilter = newValue }
+    }
+    #endif
+    
+    #if !os(tvOS)
+    /// The device orientation to use when computing heading values.
+    /// By defualt is `CLDeviceOrientation.portrait`.
+    public var headingOrientation: CLDeviceOrientation {
+        get { locationManager.headingOrientation }
+        set { locationManager.headingOrientation = newValue }
+    }
+    #endif
     
     /// Indicates whether the app receives location updates when running in the background.
     /// By default is `false`.
