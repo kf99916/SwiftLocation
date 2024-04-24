@@ -33,6 +33,8 @@ public class MockedLocationManager: LocationManagerProtocol {
     public weak var delegate: CLLocationManagerDelegate?
 
     public var allowsBackgroundLocationUpdates: Bool = false
+    public var pausesLocationUpdatesAutomatically: Bool = true
+    public var showsBackgroundLocationIndicator: Bool = false
     
     public var isLocationServicesEnabled: Bool = true {
         didSet {
@@ -57,6 +59,8 @@ public class MockedLocationManager: LocationManagerProtocol {
     public var desiredAccuracy: CLLocationAccuracy = 100.0
     public var activityType: CLActivityType = .other
     public var distanceFilter: CLLocationDistance = kCLDistanceFilterNone
+    public var headingFilter: CLLocationDegrees = 1
+    public var headingOrientation: CLDeviceOrientation = CLDeviceOrientation.portrait
     
     public var onValidatePlistConfiguration: ((_ permission: LocationPermission) -> Error?) = { _ in
         return nil

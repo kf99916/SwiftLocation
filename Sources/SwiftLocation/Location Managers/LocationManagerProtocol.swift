@@ -43,8 +43,24 @@ public protocol LocationManagerProtocol {
     var activityType: CLActivityType { get set }
     #endif
     
+    #if !os(tvOS)
+    var pausesLocationUpdatesAutomatically: Bool { get set }
+    #endif
+    
+    #if !os(tvOS)
+    var showsBackgroundLocationIndicator: Bool { get set }
+    #endif
+    
     var distanceFilter: CLLocationDistance { get set }
     var desiredAccuracy: CLLocationAccuracy { get set }
+    
+    #if !os(tvOS)
+    var headingFilter: CLLocationDegrees { get set }
+    #endif
+    
+    #if !os(tvOS)
+    var headingOrientation: CLDeviceOrientation { get set }
+    #endif
     
     #if !os(tvOS)
     var allowsBackgroundLocationUpdates: Bool { get set }
